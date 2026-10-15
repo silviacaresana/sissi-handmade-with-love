@@ -1,0 +1,925 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Sissi Handmade: borse e accessori fatti a mano all'uncinetto e a macchina. Ogni filo racconta una storia.">
+<meta name="theme-color" content="#FFF9F3">
+<link rel="icon" type="image/png" href="img/logo.png">
+<meta property="og:title" content="Sissi Handmade">
+<meta property="og:description" content="Romantic Handmade Boutique. Ogni filo racconta una storia.">
+<meta property="og:image" content="img/logo.png">
+<title>Sissi Handmade</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..600;1,6..96,400..600&family=Jost:wght@300;400;500&family=Pinyon+Script&display=swap">
+<style>
+/* Layout concept: finestre ad arco su sfondi ad acquerello, flusso a colonna singola su mobile, card a 2 colonne nel catalogo, CTA Instagram sempre a portata di pollice. */
+:root{
+  --bg:#FFF9F3; --surface:#FFFDFA; --tint:#FBE9E2;
+  --ink:#69452F; --ink-soft:#86664F; --line:rgba(201,155,84,.45);
+  --peach:#F5C8BE; --coral:#E9A58E; --gold:#C99B54; --gold-ink:#8A6424; --blue:#CFE3EA;
+  --btn-bg:#69452F; --btn-ink:#FFF9F3; --cta-bg:#E9A58E; --cta-ink:#4A2E1D;
+  --wash-a:rgba(245,200,190,.75); --wash-b:rgba(255,226,170,.55); --wash-c:rgba(207,227,234,.8);
+  --shadow:0 18px 40px -22px rgba(105,69,47,.35);
+  --f-display:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
+  --f-body:"Jost","Avenir Next","Segoe UI",system-ui,sans-serif;
+  --f-script:"Pinyon Script","Snell Roundhand","Segoe Script",cursive;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#251813; --surface:#2F2019; --tint:#3A2820;
+    --ink:#F7EADF; --ink-soft:#CDB3A0; --line:rgba(216,172,102,.4);
+    --gold:#D8AC66; --gold-ink:#E3BE82; --coral:#E9A58E;
+    --btn-bg:#F5C8BE; --btn-ink:#3A2217; --cta-bg:#E9A58E; --cta-ink:#2E1B11;
+    --wash-a:rgba(233,165,142,.22); --wash-b:rgba(201,155,84,.18); --wash-c:rgba(150,190,205,.14);
+    --shadow:0 18px 40px -22px rgba(0,0,0,.7);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#251813; --surface:#2F2019; --tint:#3A2820;
+  --ink:#F7EADF; --ink-soft:#CDB3A0; --line:rgba(216,172,102,.4);
+  --gold:#D8AC66; --gold-ink:#E3BE82; --coral:#E9A58E;
+  --btn-bg:#F5C8BE; --btn-ink:#3A2217; --cta-bg:#E9A58E; --cta-ink:#2E1B11;
+  --wash-a:rgba(233,165,142,.22); --wash-b:rgba(201,155,84,.18); --wash-c:rgba(150,190,205,.14);
+  --shadow:0 18px 40px -22px rgba(0,0,0,.7);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:1rem;line-height:1.6;font-weight:400;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--f-display);font-weight:500;line-height:1.1;margin:0;text-wrap:balance}
+p{margin:0}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
+.wrap{width:100%;max-width:1120px;margin-inline:auto;padding-inline:20px}
+.label{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:500;color:var(--gold-ink)}
+.script{font-family:var(--f-script);font-weight:400;color:var(--coral);letter-spacing:0}
+
+/* Pulsanti */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 24px;border-radius:999px;border:1px solid transparent;font-weight:500;font-size:.95rem;text-decoration:none;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease,background .2s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn--primary{background:var(--btn-bg);color:var(--btn-ink)}
+.btn--ghost{border-color:var(--gold);color:var(--ink);background:transparent}
+.btn--ig{background:var(--cta-bg);color:var(--cta-ink)}
+.btn--ig:hover{box-shadow:var(--shadow)}
+.btn svg{width:20px;height:20px;flex:none}
+
+/* Testata */
+.note{background:var(--tint);color:var(--ink-soft);font-size:.78rem;text-align:center;padding:6px 16px;line-height:1.4}
+.hdr{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.hdr__in{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand img{width:42px;height:42px;border-radius:50%}
+.brand span{font-family:var(--f-display);font-style:italic;font-size:1.25rem;font-weight:500}
+.nav{display:none;gap:28px;align-items:center}
+.nav a{text-decoration:none;font-size:.92rem;letter-spacing:.02em;padding:6px 0;border-bottom:1px solid transparent}
+.nav a:hover,.nav a[aria-current="page"]{border-color:var(--gold)}
+.menu-btn{width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:transparent;display:grid;place-items:center;cursor:pointer}
+.menu-btn svg{width:22px;height:22px}
+.sheet{position:fixed;inset:0;z-index:50;background:var(--bg);display:flex;flex-direction:column;padding:calc(env(safe-area-inset-top,0px) + 16px) 24px calc(env(safe-area-inset-bottom,0px) + 24px);overflow:hidden}
+.sheet .wash{opacity:1}
+.sheet__top{display:flex;justify-content:space-between;align-items:center;position:relative}
+.sheet__links{display:flex;flex-direction:column;gap:6px;margin-block:auto;position:relative}
+.sheet__links a{font-family:var(--f-display);font-size:clamp(2rem,9vw,2.8rem);text-decoration:none;line-height:1.25;display:flex;align-items:baseline;gap:14px;border-bottom:1px solid var(--line);padding-block:6px}
+.sheet__links a small{font-family:var(--f-body);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-ink)}
+.sheet__foot{position:relative;display:flex;flex-direction:column;gap:12px}
+.sheet__foot p{color:var(--ink-soft);font-size:.9rem}
+
+/* Acquerello decorativo */
+.wash{position:absolute;border-radius:62% 38% 55% 45%/48% 56% 44% 52%;filter:blur(34px);pointer-events:none;z-index:0}
+.wash--a{background:var(--wash-a)}.wash--b{background:var(--wash-b)}.wash--c{background:var(--wash-c)}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;padding-block:32px 56px}
+.hero .wash--a{width:420px;height:380px;top:-60px;right:-120px}
+.hero .wash--b{width:320px;height:300px;top:240px;left:-140px}
+.hero .wash--c{width:300px;height:260px;bottom:-40px;right:-80px}
+.hero__grid{position:relative;z-index:1;display:grid;gap:36px}
+.hero__text{display:flex;flex-direction:column;gap:20px;align-items:flex-start}
+.hero h1{font-size:clamp(2.5rem,10.5vw,4.7rem);letter-spacing:-.01em}
+.hero h1 .script{display:block;font-size:1.28em;line-height:.9;margin-top:.08em}
+.hero__lead{font-size:1.05rem;color:var(--ink-soft);max-width:34ch}
+.hero__cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:4px}
+.hero__art{position:relative;width:min(100%,380px);margin-inline:auto 0;justify-self:center}
+.arch{border-radius:999px 999px 20px 20px;overflow:hidden;background:var(--tint)}
+.arch img{width:100%;height:100%;object-fit:cover}
+.hero__arch{aspect-ratio:4/5;outline:1px solid var(--gold);outline-offset:10px;box-shadow:var(--shadow)}
+.hero__seal{position:absolute;left:-14px;bottom:-26px;width:104px;height:104px;border-radius:50%;box-shadow:var(--shadow);border:4px solid var(--bg)}
+.facts{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:56px;padding-top:20px;border-top:1px solid var(--line)}
+.facts div{display:flex;flex-direction:column;gap:2px;font-size:.88rem;line-height:1.35}
+.facts b{font-family:var(--f-display);font-weight:500;font-size:1.05rem}
+.facts span{color:var(--ink-soft)}
+
+/* Sezioni */
+.sec{padding-block:56px;position:relative}
+.sec__head{display:flex;flex-direction:column;gap:8px;margin-bottom:28px}
+.sec__head h2{font-size:clamp(1.8rem,6.4vw,2.7rem)}
+.sec__head p{color:var(--ink-soft);max-width:46ch}
+.sec__row{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:24px}
+.sec__row .sec__head{margin:0}
+.link{font-size:.9rem;font-weight:500;text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:2px;white-space:nowrap}
+
+/* Card prodotto */
+.card{display:flex;flex-direction:column;gap:10px;text-decoration:none;min-width:0}
+.card__img{position:relative;aspect-ratio:6/7;border-radius:18px;overflow:hidden;background:var(--tint)}
+.card__img img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.card:hover .card__img img{transform:scale(1.04)}
+.card__body{display:flex;flex-direction:column;gap:2px}
+.card h3{font-size:1.12rem;line-height:1.2}
+.card .label{font-size:.66rem}
+.badge{position:absolute;top:10px;left:10px;background:var(--bg);color:var(--ink);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;font-weight:500;padding:4px 10px;border-radius:999px;border:1px solid var(--line)}
+.badge--hot{background:var(--coral);color:#3b2416;border-color:transparent}
+.blurb{margin:.4rem 0 0;color:var(--ink-soft);font-size:1rem}
+\
+.spoteaser{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:14px 16px;border:1px solid var(--line);border-radius:16px;background:var(--tint);margin-bottom:16px;color:inherit;text-decoration:none}
+.spoteaser b{font-family:var(--f-display);font-weight:500;flex:1 1 220px}
+.spo{padding-block:28px}
+.spo h1{margin:.2rem 0}
+.proc__media{position:relative}
+.demo{margin-top:32px;padding:18px;border:1px dashed var(--line);border-radius:16px;display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.demo p{margin:0;color:var(--ink-soft);max-width:56ch}
+.demo__row{display:flex;flex-direction:column;gap:6px;width:100%;max-width:320px}
+.demo__row input{width:100%}
+.upl{margin-top:4px;padding:14px 16px;border:1px dashed var(--line);border-radius:12px;color:var(--ink-soft);display:flex;flex-direction:column;opacity:.75}
+.upl small{font-size:.8rem}
+.proc__lead{color:var(--ink-soft);max-width:52ch;margin:.4rem 0 20px}
+.proc{display:grid;gap:16px;grid-template-columns:1fr}
+.proc__item{margin:0}
+.proc__media{border-radius:20px;overflow:hidden;background:var(--tint);aspect-ratio:4/3;display:flex;align-items:center;justify-content:center}
+.proc__media video,.proc__media img{width:100%;height:100%;object-fit:cover;display:block}
+.proc__item figcaption{margin-top:8px;font-size:.92rem;color:var(--ink-soft)}
+.proc__item--soon .proc__media{border:1px dashed var(--line);background:transparent}
+.proc__item--soon span{font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+@media (min-width:720px){.proc{grid-template-columns:repeat(3,1fr)}}
+.cfg{display:flex;flex-direction:column;gap:10px;margin-top:18px;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--tint)}
+.cfg__lead{margin:0;color:var(--ink-soft)}
+.cfg__t{width:100%;border-collapse:collapse;font-size:.92rem}
+.cfg__t th,.cfg__t td{padding:8px 6px;text-align:center;border-bottom:1px solid var(--line);font-weight:400}
+.cfg__t thead th{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.cfg__t tbody th{text-align:left;font-family:var(--f-display)}
+.cfg__t td:last-child{white-space:nowrap}
+.cfg__x{margin:0;padding-left:1.1em;color:var(--ink-soft);font-size:.92rem}
+.badge--sold{background:var(--ink);color:var(--bg);border-color:transparent}
+.meta{font-size:.82rem;color:var(--ink-soft)}
+.vars{display:flex;flex-direction:column;gap:10px}
+.vars__row{display:flex;flex-wrap:wrap;gap:8px}
+.vchip{display:inline-flex;align-items:center;gap:8px}
+.vchip i{width:14px;height:14px;border-radius:50%;border:1px solid var(--line);flex:none}
+.vars__note{color:var(--ink-soft);font-size:.95rem}
+.price__note{font-size:.88rem;color:var(--ink-soft)}
+.vidbox{margin-top:0;display:flex;flex-direction:column;gap:12px;align-items:center}
+.vidbox video{width:100%;max-height:72vh;border-radius:22px;background:var(--tint);display:block;object-fit:contain;box-shadow:var(--shadow)}
+.vidbox__row{display:flex;gap:8px}
+.rail{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:-20px;padding:4px 20px 12px;scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.rail .card{flex:0 0 min(62vw,250px);scroll-snap-align:start}
+
+/* Categorie */
+.cats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 14px}
+.cat:last-child:nth-child(odd){grid-column:1/-1}
+.cat:last-child:nth-child(odd) .arch{width:calc(50% - 7px)}
+.cat{display:flex;flex-direction:column;gap:12px;text-decoration:none;align-items:center;text-align:center}
+.cat .arch{width:100%;aspect-ratio:4/5;position:relative}
+.cat .arch img{transition:transform .5s ease}
+.cat:hover .arch img{transform:scale(1.05)}
+.cat b{font-family:var(--f-display);font-weight:500;font-size:1.1rem;line-height:1.2}
+
+/* Su richiesta */
+.ask{background:var(--tint);border-radius:28px;padding:32px 24px;position:relative;overflow:hidden}
+.ask .wash--b{width:260px;height:240px;right:-90px;top:-80px}
+.ask__in{position:relative;z-index:1;display:grid;gap:28px}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:18px;counter-reset:s}
+.steps li{counter-increment:s;display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start}
+.steps li::before{content:counter(s);width:44px;height:44px;border-radius:50%;border:1px solid var(--gold);display:grid;place-items:center;font-family:var(--f-display);font-size:1.2rem;color:var(--gold-ink)}
+.steps b{display:block;font-family:var(--f-display);font-weight:500;font-size:1.15rem;line-height:1.3}
+.steps span{color:var(--ink-soft);font-size:.95rem}
+
+/* Atelier */
+.atelier{display:grid;gap:28px;align-items:center}
+.atelier__photo{aspect-ratio:4/5;max-width:340px;width:100%;margin-inline:auto;outline:1px solid var(--gold);outline-offset:10px}
+.atelier__text{display:flex;flex-direction:column;gap:16px}
+.atelier h2{font-size:clamp(1.8rem,6.4vw,2.7rem)}
+.atelier p{color:var(--ink-soft);max-width:44ch}
+
+/* Footer */
+.ftr{border-top:1px solid var(--line);padding-block:48px 40px;position:relative;overflow:hidden}
+.ftr .wash--a{width:320px;height:240px;left:-100px;bottom:-100px}
+.ftr__in{position:relative;z-index:1;display:grid;gap:28px;justify-items:start}
+.ftr img{width:88px;height:88px;border-radius:50%}
+.ftr h2{font-size:1.8rem}
+.ftr p{color:var(--ink-soft);max-width:40ch}
+.ftr small{color:var(--ink-soft);font-size:.8rem}
+.handle{font-family:var(--f-display);font-style:italic;font-size:1.2rem}
+
+/* Catalogo */
+.page-head{padding-block:36px 8px;display:flex;flex-direction:column;gap:10px;position:relative}
+.page-head h1{font-size:clamp(2.2rem,8vw,3.6rem)}
+.page-head p{color:var(--ink-soft);max-width:46ch}
+.filters{display:flex;flex-direction:column;gap:14px;padding-block:20px 8px}
+.chips{display:flex;gap:8px;overflow-x:auto;margin-inline:-20px;padding:2px 20px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;min-height:40px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:transparent;cursor:pointer;font-size:.9rem;white-space:nowrap;transition:background .2s}
+.chip:hover{background:var(--tint)}
+.chip[aria-pressed="true"]{background:var(--btn-bg);color:var(--btn-ink);border-color:var(--btn-bg)}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;align-self:flex-start;max-width:100%;overflow-x:auto}
+.seg button{border:0;background:transparent;min-height:36px;padding:0 14px;border-radius:999px;cursor:pointer;font-size:.88rem;white-space:nowrap}
+.seg button[aria-pressed="true"]{background:var(--tint);font-weight:500;box-shadow:inset 0 0 0 1px var(--gold)}
+.count{font-size:.85rem;color:var(--ink-soft)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 14px;padding-block:16px 64px}
+.empty{grid-column:1/-1;text-align:center;padding:56px 16px;display:flex;flex-direction:column;gap:12px;align-items:center;border:1px dashed var(--gold);border-radius:24px}
+.empty h3{font-size:1.4rem}
+.empty p{color:var(--ink-soft);max-width:34ch}
+
+/* Scheda prodotto */
+.back{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-size:.9rem;padding-block:16px;color:var(--ink-soft)}
+.back svg{width:18px;height:18px}
+.pdp{display:grid;gap:28px;padding-bottom:120px}
+.gal{position:relative}
+.gal__track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:0;border-radius:999px 999px 22px 22px;aspect-ratio:5/6;scrollbar-width:none;background:var(--tint);outline:1px solid var(--gold);outline-offset:8px;box-shadow:var(--shadow)}
+.gal__track::-webkit-scrollbar{display:none}
+.gal__track img{flex:0 0 100%;width:100%;height:100%;object-fit:cover;scroll-snap-align:center}
+.dots{display:flex;justify-content:center;gap:8px;margin-top:22px}
+.dots i{width:7px;height:7px;border-radius:50%;background:var(--line);transition:all .2s}
+.dots i.on{background:var(--gold);width:22px;border-radius:99px}
+.modes{display:flex;gap:6px;margin-top:18px;justify-content:center;flex-wrap:wrap}
+.modes button{min-height:40px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:transparent;cursor:pointer;font-size:.88rem;display:inline-flex;gap:8px;align-items:center}
+.modes button[aria-selected="true"]{background:var(--btn-bg);color:var(--btn-ink);border-color:var(--btn-bg)}
+.modes button.soon{color:var(--ink-soft);border-style:dashed}
+.modes small{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-ink);border:1px solid var(--line);padding:1px 6px;border-radius:99px}
+.soon-panel{margin-top:14px;border:1px dashed var(--gold);border-radius:20px;padding:20px;display:flex;gap:16px;align-items:center;color:var(--ink-soft);font-size:.92rem;background:var(--surface)}
+.soon-panel svg{width:56px;height:56px;flex:none;color:var(--gold)}
+.info{display:flex;flex-direction:column;gap:22px}
+.info__top{display:flex;flex-direction:column;gap:10px}
+.info h1{font-size:clamp(2rem,7.4vw,3rem)}
+.pill{align-self:flex-start;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;font-weight:500;padding:4px 12px;border-radius:99px;border:1px solid var(--line)}
+.pill--sold{background:var(--ink);color:var(--bg);border-color:transparent}
+.price{display:flex;flex-direction:column;gap:8px;padding-block:16px;border-block:1px solid var(--line)}
+.price__scale{display:flex;gap:6px;align-items:center}
+.price__scale span{font-family:var(--f-display);font-size:1.05rem;padding:2px 12px;border:1px solid var(--line);border-radius:99px;color:var(--ink-soft)}
+.price__scale em{font-style:normal;font-size:.88rem;color:var(--ink-soft);margin-left:6px}
+.specs{display:grid;gap:0;margin:0}
+.specs div{display:grid;grid-template-columns:110px 1fr;gap:12px;padding-block:12px;border-bottom:1px solid var(--line);font-size:.95rem}
+.specs dt{color:var(--ink-soft);margin:0}
+.specs dd{margin:0}
+.specs .todo{font-style:italic;color:var(--ink-soft)}
+.msg{background:var(--tint);border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:12px}
+.msg p{font-family:var(--f-display);font-style:italic;font-size:1.08rem;line-height:1.4}
+.msg .row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.msg small{color:var(--ink-soft);font-size:.82rem}
+.copy{min-height:40px;padding:0 16px;border-radius:99px;border:1px solid var(--gold);background:transparent;cursor:pointer;font-size:.88rem}
+.cta-inline{display:none}
+.cta-bar{position:fixed;left:0;right:0;bottom:0;z-index:25;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line);padding:12px 20px calc(env(safe-area-inset-bottom,0px) + 12px)}
+.cta-bar .btn{width:100%}
+.more{padding-block:8px 72px;border-top:1px solid var(--line);padding-top:40px}
+
+@media (min-width:860px){
+  .wrap{padding-inline:40px}
+  .nav{display:flex}.menu-btn{display:none}
+  .hero{padding-block:64px 80px}
+  .hero__grid{grid-template-columns:1.1fr .9fr;align-items:center;gap:64px}
+  .hero__art{margin-inline:auto 0;width:100%;max-width:420px}
+  .facts{max-width:640px}
+  .rail{margin-inline:0;padding-inline:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));overflow:visible}
+  .rail .card{flex:none}
+  .rail .card:nth-child(n+5){display:none}
+  .cats{grid-template-columns:repeat(7,minmax(0,1fr));gap:20px 12px}
+  .cat:last-child:nth-child(odd){grid-column:auto}.cat:last-child:nth-child(odd) .arch{width:100%}
+  .cat b{font-size:.98rem}
+  .ask{padding:56px}.ask__in{grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .atelier{grid-template-columns:.8fr 1fr;gap:80px}
+  .ftr__in{grid-template-columns:auto 1fr auto;align-items:center;gap:40px}
+  .chips{margin-inline:0;padding-inline:0;flex-wrap:wrap}
+  .filters{flex-direction:row;justify-content:space-between;align-items:flex-start;flex-wrap:wrap}
+  .grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:36px 24px}
+  .pdp{grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+  .gal{position:sticky;top:96px}
+  .cta-bar{display:none}.cta-inline{display:block}
+  .pdp{padding-bottom:64px}
+  .chips-wrap{flex:1}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<div id="preview-note" class="note">Anteprima di design. Foto reali dal profilo Instagram. Titoli provvisori, prezzi e materiali da completare.</div>
+
+<header class="hdr">
+  <div class="wrap hdr__in">
+    <a class="brand" href="#home" aria-label="Sissi Handmade, vai alla home">
+      <img id="logo-h" alt="Logo Sissi Handmade">
+      <span>Sissi Handmade</span>
+    </a>
+    <nav class="nav" aria-label="Navigazione principale">
+      <a href="#home" data-nav="home">Home</a>
+      <a href="#catalogo" data-nav="catalogo">Catalogo</a>
+      <a href="#su-richiesta" data-nav="su-richiesta">Su richiesta</a>
+      <a href="#spoiler" data-nav="spoiler">Spoiler</a>
+      <a href="#chi-sono" data-nav="chi-sono">Chi sono</a>
+      <a href="#contatti" data-nav="contatti">Contatti</a>
+    </nav>
+    <button class="menu-btn" id="menu-open" aria-label="Apri il menu" aria-expanded="false" aria-controls="menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 8h16M8 16h12"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="sheet" id="menu" hidden role="dialog" aria-modal="true" aria-label="Menu">
+  <span class="wash wash--a" style="width:360px;height:320px;top:-80px;right:-120px"></span>
+  <span class="wash wash--b" style="width:300px;height:280px;bottom:60px;left:-120px"></span>
+  <span class="wash wash--c" style="width:260px;height:240px;bottom:-60px;right:-60px"></span>
+  <div class="sheet__top">
+    <a class="brand" href="#home" data-close><img id="logo-m" alt=""><span>Sissi Handmade</span></a>
+    <button class="menu-btn" id="menu-close" aria-label="Chiudi il menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <nav class="sheet__links" aria-label="Menu principale">
+    <a href="#home" data-close>Home</a>
+    <a href="#catalogo" data-close>Catalogo <small>Sfoglia</small></a>
+    <a href="#su-richiesta" data-close>Su richiesta</a>
+    <a href="#spoiler" data-close>Spoiler <small>Anteprime</small></a>
+    <a href="#chi-sono" data-close>Chi sono</a>
+    <a href="#contatti" data-close>Contatti</a>
+  </nav>
+  <div class="sheet__foot">
+    <p class="script" style="font-size:1.9rem;line-height:1.1">Ogni filo racconta una storia</p>
+    <a class="btn btn--ig" href="https://www.instagram.com/_sissi_handmade/" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".9" fill="currentColor" stroke="none"/></svg>
+      Scrivici su Instagram
+    </a>
+  </div>
+</div>
+
+<main id="app"></main>
+
+<script>
+/* Immagini reali ritagliate dagli screenshot del profilo Instagram, incorporate come data URI. */
+const IMG = {"french": "img/french.jpg", "beer": "img/beer.jpg", "shirt": "img/shirt.jpg", "blue": "img/blue.jpg", "pinkpouch": "img/pinkpouch.jpg", "ring": "img/ring.jpg", "cats": "img/cats.jpg", "cactus": "img/cactus.jpg", "brown": "img/brown.jpg", "purple": "img/purple.jpg", "tools": "img/tools.jpg", "logo": "img/logo.png", "tealflat": "img/tealflat.jpg", "fucsiaflat": "img/fucsiaflat.jpg", "tealpair": "img/tealpair.jpg", "fucsiapair": "img/fucsiapair.jpg", "stripes": "img/stripes.jpg", "lanyard": "img/lanyard.jpg", "bicolore": "img/bicolore.jpg", "malva1": "img/malva1.jpg", "malva2": "img/malva2.jpg", "cl_front": "img/cl_front.jpg", "cl_side": "img/cl_side.jpg", "cl_lining": "img/cl_lining.jpg", "cl_top": "img/cl_top.jpg", "cl_label": "img/cl_label.jpg", "cl_hero": "img/cl_hero.jpg", "nodo1": "img/nodo1.jpg", "nodo2": "img/nodo2.jpg", "gal1": "img/gal1.jpg", "gal2": "img/gal2.jpg", "gal3": "img/gal3.jpg", "gl_all": "img/gl_all.jpg", "gl_teal": "img/gl_teal.jpg", "gl_pair": "img/gl_pair.jpg", "gf1": "img/gf1.jpg", "gf2": "img/gf2.jpg", "rosa1": "img/rosa1.jpg", "rosa2": "img/rosa2.jpg", "ric": "img/ric.jpg", "blueA": "img/blueA.jpg", "zz": "img/zz.jpg", "bl": "img/bl.jpg", "rm": "img/rm.jpg", "rg": "img/rg.jpg", "hat": "img/hat.jpg", "ring2": "img/ring2.jpg", "ring7": "img/ring7.jpg", "cat10": "img/cat10.jpg", "cat3": "img/cat3.jpg", "cat4": "img/cat4.jpg", "br5": "img/br5.jpg", "br8": "img/br8.jpg", "br9": "img/br9.jpg", "zebra": "img/zebra.jpg", "bic1": "img/bic1.jpg", "bic2": "img/bic2.jpg", "bic3": "img/bic3.jpg", "bic4": "img/bic4.jpg", "pk1": "img/pk1.jpg", "pk2": "img/pk2.jpg", "tan": "img/tan.jpg", "vel1": "img/vel1.jpg", "vel2": "img/vel2.jpg", "cat8": "img/cat8.jpg", "brc1": "img/brc1.jpg", "brc2": "img/brc2.jpg", "fr12": "img/fr12.jpg", "cactus2": "img/cactus2.jpg", "hen2": "img/hen2.jpg", "accP": "img/accP.jpg", "neraP": "img/neraP.jpg", "wm1": "img/wm1.jpg", "irid1": "img/irid1.jpg", "star1": "img/star1.jpg", "wm2": "img/wm2.jpg", "wm3": "img/wm3.jpg", "star2": "img/star2.jpg", "irid2": "img/irid2.jpg", "sew": "img/sew.jpg", "vine": "img/vine.jpg", "plant": "img/plant.jpg", "tbi1": "img/tbi1.jpg", "tbi2": "img/tbi2.jpg", "rg2": "img/rg2.jpg", "rg3": "img/rg3.jpg", "pr1": "img/pr1.jpg", "cc1": "img/cc1.jpg"};
+const TH = k => 'img/t/'+k+'.jpg';
+const IG = 'https://www.instagram.com/_sissi_handmade/';
+const IG_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".9" fill="currentColor" stroke="none"/></svg>';
+
+/* Dati: un solo posto da cui leggono tutti i componenti. In sviluppo diventeranno file JSON/Markdown.
+   status: null (da confermare) | 'venduta' | 'richiesta' | 'disponibile'. Solo i fatti visibili in foto o scritti nelle didascalie. */
+const BORSE="Borse all'uncinetto", CLUTCH="Clutch", CUCITE="Borse cucite", POCHETTE="Pochette", PORTA="Portachiavi", ACC="Accessori", PERS="Personalizzati";
+const CATS = [BORSE,CUCITE,CLUTCH,POCHETTE,PORTA,ACC,PERS];
+const PRODUCTS = [
+  {id:'french-bag', title:'French Bag', cat:BORSE, status:null, imgs:['fucsiaflat','tealflat','french','fucsiapair','tealpair'],
+   alt:'French Bag all\'uncinetto con patta, frange ed etichetta a fiore',
+   price:{from:20,to:35,chips:['Mini da 20 €','Fino a 35 €'],note:'I modelli più grandi, in un materiale particolare, arrivano a 35 €. Il prezzo esatto dipende da dimensioni e materiale.'},
+   variants:[
+     {n:'Fucsia', img:0, color:'#C21E63', note:'Fucsia, con tracolla intrecciata e anelli dorati.'},
+     {n:'Verde acqua', img:1, color:'#2E9C98', note:'Verde acqua, con tracolla intrecciata e anelli argentati.'},
+     {n:'Verde foresta', img:2, color:'#2F4A3E', sold:true, note:'Verde foresta con dettagli ramati, catenella dorata e bottone automatico. Foderata con taschina interna.'}
+   ],
+   specs:[['Modello','French Bag, in versione mini e in versioni più grandi'],['Chiusura','Patta'],['Dettagli','Frange e etichetta "handmade with" a forma di fiore']]},
+  {id:'clutch-bicolore', title:'Clutch bicolore', cat:CLUTCH, status:null, imgs:['bic1','bic2','bic3','bic4','bicolore'], ratio:'4/3',
+   alt:'Clutch all\'uncinetto bordeaux con bordo intrecciato color panna',
+   price:{from:35,to:35,chips:['35 €'],note:'Prezzo indicativo per questo modello. Può variare in base a dimensioni e materiali.'},
+   videos:[{label:'Video',src:'media/bicolore-1.mp4',poster:'media/bicolore-1.jpg',w:608,h:1080}],
+   specs:[['Colori','Bordeaux e panna'],['Dettaglio','Bordo superiore intrecciato in contrasto']]},
+  {id:'clutch-ecopelle', title:'Clutch in ecopelle', cat:CLUTCH, status:'venduta', imgs:['cl_front','cl_side','cl_lining','cl_top','cl_label'], cover:'cl_side', ratio:'5/4',
+   alt:'Clutch all\'uncinetto champagne con bordo rivestito, fiorellino, etichetta Hand Made with love e interno in raso',
+   price:{from:50,to:50,chips:['Questo pezzo: 50 €','Piccole da 30 €'],note:'Questa clutch da 22 cm è stata realizzata su richiesta ed è già venduta. Le clutch piccole sono in fettuccia normale; le più grandi hanno la catenella e tessuti speciali, come l\'ecopelle. Puoi richiederne una simile.'},
+   specs:[['Colore','Champagne'],['Misura','22 cm'],['Materiale','Ecopelle'],['Interno','Foderata in raso'],['Dettagli','Bordo superiore rivestito a filo, fiorellino all\'uncinetto, etichetta "Hand Made with love"']]},
+  {id:'portaoggetti-righe', title:'Portaoggetti a righe fucsia e verde', cat:ACC, status:null, imgs:['stripes'],
+   alt:'Piccolo portaoggetti all\'uncinetto a righe fucsia e verde acqua con fiore applicato',
+   price:{from:8,to:8,chips:['8 €'],note:'Piccolo portaoggetti: prezzo indicativo.'},
+   specs:[['Colori','Fucsia e verde acqua'],['Misura','Molto piccolo'],['Dettaglio','Fiore applicato']]},
+  {id:'cordino-cellulare', title:'Cordino per cellulare', cat:ACC, status:null, imgs:['lanyard'],
+   alt:'Cordino intrecciato all\'uncinetto color blu jeans attaccato a uno smartphone',
+   price:{from:7,to:7,chips:['7 €','Gancio per telefono incluso'],note:'Prezzo indicativo.'},
+   specs:[['Colore','Blu jeans'],['Lavorazione','Intreccio all\'uncinetto']]},
+  {id:'borsa-ad-anello', title:'Borsa verde con manico ad anello', cat:BORSE, status:null, imgs:['ring2','ring7'], ratio:'3/4',
+   alt:'Borsa all\'uncinetto verde scuro con manico ad anello dorato',
+   price:{from:35,to:35,chips:['35 €','Manico ad anello dorato'],note:'Prezzo indicativo. Può variare in base a dimensioni e materiali.'},
+   videos:[{label:'Video',src:'media/anello-1.mp4',poster:'media/anello-1.jpg',w:608,h:810}],
+   specs:[['Colore','Verde scuro'],['Manico','Anello dorato'],['Dettaglio','Bottoncino decorativo']]},
+  {id:'twist-bag', title:'Twist Bag', cat:CUCITE, status:null, imgs:['nodo1','nodo2'], ratio:'4/5',
+   alt:'Twist Bag nera in ecopelle con manico a nodo, appesa a una ringhiera in giardino',
+   price:{from:20,to:40,chips:['Piccola 20 €','Media 30 €','Grande 40 €'],note:'Il prezzo dipende dalle dimensioni. Prezzi indicativi.'},
+   videos:[{label:'Video 1',src:'media/twist-1.mp4',poster:'media/twist-1.jpg',w:608,h:1080},{label:'Video 2',src:'media/twist-2.mp4',poster:'media/twist-2.jpg',w:608,h:810},{label:'Video 3',src:'media/twist-3.mp4',poster:'media/twist-3.jpg',w:608,h:888}],
+   specs:[['Colore','Nero'],['Materiale','Ecopelle'],['Manico','A nodo (twist), ricavato dal corpo della borsa']]},
+  {id:'clutch-viola', title:'Clutch viola', cat:CLUTCH, status:null, imgs:['purple'],
+   alt:'Clutch viola in ciniglia con manico integrato, tenuta in mano',
+   videos:[{label:'Esterno e interno',src:'media/viola-1.mp4',poster:'media/viola-1.jpg',w:608,h:1080},{label:'Video 2',src:'media/viola-2.mp4',poster:'media/viola-2.jpg',w:608,h:1080},{label:'Video 3',src:'media/viola-3.mp4',poster:'media/viola-3.jpg',w:608,h:1080}],
+   price:{from:38,to:38,chips:['38 €','Foderata'],note:'Prezzo indicativo per questo modello, con la fodera inclusa. Può variare in base a dimensioni e materiali.'},
+   specs:[['Colore','Viola'],['Filato','Ciniglia'],['Misura','Piccola'],['Interno','Foderata'],['Manico','Integrato nel corpo della clutch']]},
+  {id:'triangle-bag', title:'Triangle Bag', cat:BORSE, status:null, hot:true, imgs:['gf1','gf2','br5','br8','br9','tan','tbi1','tbi2'], ratio:'4/5',
+   alt:'Triangle Bag all\'uncinetto: versione nera con frange e tracolla regolabile, e versione maxi marrone',
+   price:{from:30,to:null,chips:['Da 30 €','Fino a 45 €','Bicolore +5 €'],note:'Il prezzo dipende dalla misura, da 30 € (piccola) a 45 € (gigante). La versione bicolore costa 5 € in più. Altre personalizzazioni: scrivici su Instagram per un preventivo.'},
+   blurb:'Una delle creazioni più richieste: forma a triangolo, in quattro misure (piccola, media, medio-grande, gigante), con o senza frange, anche bicolore. Tanta libertà di personalizzazione.',
+   config:{title:'Componi la tua Triangle Bag', lead:'Ogni misura si può fare con le frange oppure senza.',
+     sizes:[{n:'Piccola',price:'30 €'},{n:'Media',price:'35 €'},{n:'Medio-grande',price:'40 €'},{n:'Gigante',price:'45 €'}],
+     opts:['Con frange','Senza frange'],
+     extras:['Tracolla regolabile oppure manico fisso (sulla misura gigante la tracolla regolabile è sconsigliata: risulterebbe troppo grossa)','Il prezzo è lo stesso con o senza tracolla regolabile','Versione bicolore: +5 € sul prezzo della misura scelta'],
+     note:'I prezzi sono indicativi e variano con dimensioni e colori. Scrivici su Instagram per il preventivo.'},
+   variants:[
+     {n:'Nera con frange', img:0, color:'#2B2B2E', note:'Versione base: nera, con frange e tracolla regolabile.'},
+     {n:'Cammello', img:5, color:'#B98048', note:'Triangle Bag color cammello, con manico fisso e senza frange.'},
+     {n:'Bicolore cammello e marrone', img:6, color:'#B98048', note:'Triangle Bag bicolore in cammello e marrone, con frange.'},
+     {n:'Maxi marrone', img:2, color:'#5A4535', note:'Versione maxi: marrone, con manico non regolabile e senza frange.'}
+   ],
+videos:[{label:'Video',src:'media/triangle-1.mp4',poster:'media/triangle-1.jpg',w:608,h:1080},{label:'Video 2',src:'media/triangle-cammello.mp4',poster:'media/triangle-cammello.jpg',w:608,h:1080},{label:'Bicolore cammello e marrone',src:'media/triangle-bicolore.mp4',poster:'media/triangle-bicolore.jpg',w:608,h:1080},{label:'Nera',src:'media/triangle-nera-2.mp4',poster:'media/triangle-nera-2.jpg',w:608,h:1080}],
+   specs:[['Misure','Piccola, media, medio-grande, gigante'],['Frange','Con o senza, per ogni misura'],['Colori','Nera e marrone (anche bicolore, +5 €)'],['Dettagli','Etichetta handmade'],['Richiesta','Molto richiesta']]},
+  {id:'clutch-marrone-frange', title:'Clutch bicolore marrone con frange', cat:CLUTCH, status:null, imgs:['brown'],
+   alt:'Clutch all\'uncinetto bicolore in tonalità di marrone, con frange',
+   price:{from:40,to:40,chips:['40 €','Bicolore con frange'],note:'Prezzo indicativo: clutch bicolore con frange. Può variare in base a dimensioni e materiali.'},
+   videos:[{label:'Video',src:'media/marrone-1.mp4',poster:'media/marrone-1.jpg',w:608,h:810}],
+   specs:[['Colori','Marrone, bicolore'],['Dettaglio','Frange']]},
+  {id:'pochette-velluto', title:'Pochette in velluto con catenella', cat:POCHETTE, status:null, imgs:['blueA','malva1','malva2','vel1','vel2'],
+   alt:'Pochette all\'uncinetto effetto velluto con catenella argentata',
+   price:{from:25,to:25,chips:['25 €','Catenella inclusa'],note:'Con la fodera in tessuto o raso il prezzo aumenta. Scrivici su Instagram per il preventivo.'},
+   variants:[
+     {n:'Blu', img:0, color:'#1C2F8F', note:'Blu, effetto velluto, catenella argentata con anelli a scatto.'},
+     {n:'Rosa antico', img:1, color:'#B07C85', note:'Rosa antico, effetto velluto, catenella color argento satinato con anelli a scatto.'}
+   ],
+   videos:[{label:'Blu · 1',src:'media/blu-1.mp4',poster:'media/blu-1.jpg',w:1280,h:720},{label:'Blu · 2',src:'media/blu-2.mp4',poster:'media/blu-2.jpg',w:1280,h:720},{label:'Rosa antico',src:'media/malva-1.mp4',poster:'media/malva-1.jpg',w:540,h:960}],
+   specs:[['Aspetto','Effetto velluto'],['Catenella','Inclusa, con anelli a scatto']]},
+  {id:'portachiavi-gallina', title:'Portachiavi gallina all\'uncinetto', cat:PORTA, status:null, imgs:['hen2','gal1','gal2','gal3'], ratio:'4/5',
+   alt:'Portachiavi a forma di gallina all\'uncinetto, bianco panna con cresta rossa e becco arancione, tenuto in mano',
+   price:{from:7,to:7,chips:['7 €'],note:'Prezzo per pezzo.'},
+   specs:[['Colori','Bianco panna, cresta rossa, becco arancione'],['Lavorazione','Uncinetto, a pezzo pieno'],['Chiusura','Anello portachiavi con catenella']]},
+  {id:'portachiavi-birra', title:'Portachiavi boccale di birra', cat:PORTA, status:null, imgs:['beer'],
+   alt:'Portachiavi all\'uncinetto a forma di boccale di birra',
+   price:{from:7,to:7,chips:['7 €'],note:'Prezzo per pezzo.'}, specs:[['Colori','Giallo e rosa chiaro']]},
+  {id:'catenelle-occhiali', title:'Catenelle per occhiali', cat:ACC, status:null, imgs:['gl_all','gl_teal','gl_pair'], ratio:'4/5',
+   alt:'Catenelle per occhiali all\'uncinetto: blu intrecciata, blu con fiorellini azzurri, verde con fiorellini lilla',
+   price:{from:5,to:5,chips:['5 €'],note:'Prezzo per catenella.'},
+   videos:[{label:'Video',src:'media/catenelle-1.mp4',poster:'media/catenelle-1.jpg',w:1280,h:720}],
+   specs:[['Modelli','Blu intrecciata, blu con fiorellini azzurri, verde con fiorellini lilla'],['Lavorazione','Catenella all\'uncinetto, con fiorellini applicati'],['Chiusura','Terminali in silicone per le astine']]},
+  {id:'presina-seno', title:'Presina a forma di seno', cat:PERS, status:null, imgs:['rosa1','rosa2','pinkpouch'], ratio:'4/5',
+   alt:'Presina all\'uncinetto rosa a forma di seno con areola corallo, tenuta in mano',
+   price:{custom:true,chips:['Su richiesta'],note:'Il prezzo si stabilisce in base alla richiesta. Scrivici su Instagram per un preventivo.'},
+   specs:[['Tipo','Presina da cucina'],['Colori','Rosa e corallo'],['Lavorazione','All\'uncinetto, su richiesta']]},
+  {id:'clutch-righe', title:'Clutch a righe con frange', cat:CLUTCH, status:null, imgs:['zz'], ratio:'3/4',
+   alt:'Clutch all\'uncinetto a righe gialle e bordeaux con frange e catenella dorata',
+   price:{from:38,to:38,chips:['38 €','Catenella inclusa'],note:'Prezzo indicativo, con catenella inclusa. Può variare in base a dimensioni e materiali.'},
+videos:[{label:'Video 1',src:'media/zigzag-1.mp4',poster:'media/zigzag-1.jpg',w:608,h:1080},{label:'Video 2',src:'media/zigzag-2.mp4',poster:'media/zigzag-2.jpg',w:608,h:1080}],
+   specs:[['Colori','Giallo e bordeaux'],['Motivo','A righe'],['Dettagli','Frange'],['Catenella','Inclusa']]},
+  {id:'clutch-blu-lucida', title:'Clutch blu lucida', cat:CLUTCH, status:null, imgs:['bl'], ratio:'1/1',
+   alt:'Clutch all\'uncinetto blu lucida con manico integrato, tenuta in mano in giardino',
+   price:{from:35,to:35,chips:['35 €','Non foderata'],note:'Prezzo indicativo. Può variare in base a dimensioni e materiali.'},
+   videos:[{label:'Video 1',src:'media/blu-lucida-1.mp4',poster:'media/blu-lucida-1.jpg',w:608,h:608},{label:'Video 2',src:'media/blu-lucida-2.mp4',poster:'media/blu-lucida-2.jpg',w:608,h:888}],
+   specs:[['Colore','Blu lucido'],['Interno','Non foderata'],['Manico','Integrato nel corpo della borsa']]},
+  {id:'borsa-rame', title:'Borsa color rame', cat:BORSE, status:null, imgs:['rm'], ratio:'3/4',
+   alt:'Borsa all\'uncinetto color rame con manico, tenuta in mano in giardino',
+   price:{from:30,to:30,chips:['30 €'],note:'Prezzo indicativo. Può variare in base a dimensioni e materiali.'},
+   videos:[{label:'Video 1',src:'media/rame-1.mp4',poster:'media/rame-1.jpg',w:608,h:608},{label:'Video 2',src:'media/rame-2.mp4',poster:'media/rame-2.jpg',w:608,h:842}],
+   specs:[['Colore','Rame'],['Filato','Lucido']]},
+  {id:'borsa-ruggine', title:'Borsa ruggine', cat:BORSE, status:'venduta', imgs:['rg','rg2','rg3'], ratio:'3/4',
+   alt:'Borsa all\'uncinetto color ruggine con due manici, tenuta in mano',
+   price:{from:35,to:35,chips:['35 €'],note:'Questo pezzo è già stato venduto. Prezzo indicativo per una borsa simile: può variare in base a dimensioni e materiali.'},
+   videos:[{label:'Video',src:'media/ruggine-1.mp4',poster:'media/ruggine-1.jpg',w:608,h:1080},{label:'Video 2',src:'media/ruggine-2.mp4',poster:'media/ruggine-2.jpg',w:608,h:608},{label:'Video 3',src:'media/ruggine-3.mp4',poster:'media/ruggine-3.jpg',w:608,h:1080}],
+   specs:[['Colore','Ruggine'],['Filato','Di qualità, con fili ramati'],['Chiusura','Cerniera']]},
+  {id:'portachiavi-cappello', title:'Portachiavi cappello di paglia', cat:PORTA, status:null, imgs:['hat'], ratio:'3/4',
+   alt:'Portachiavi all\'uncinetto a forma di cappello di paglia giallo con nastro rosso',
+   price:{from:7,to:7,chips:['7 €'],note:'Prezzo per pezzo.'},
+   videos:[{label:'Video',src:'media/cappello-1.mp4',poster:'media/cappello-1.jpg',w:608,h:1080}],
+   specs:[['Colori','Giallo e rosso'],['Chiusura','Anello portachiavi']]},
+  {id:'borsa-rosa-glitter', title:'Borsa rosa con filo luccicante', cat:BORSE, status:null, imgs:['irid1','irid2','pk1'], ratio:'3/4',
+   alt:'Borsa all\'uncinetto rosa con filo luccicante dai riflessi iridescenti, a punto aperto con manico ricavato nel corpo',
+   price:{from:20,to:20,chips:['20 €'],note:'Prezzo indicativo per questo modello. Può variare in base a dimensioni e materiali.'},
+   specs:[['Colore','Rosa, con filo luccicante dai riflessi iridescenti'],['Lavorazione','Uncinetto a punto aperto'],['Dettaglio','Etichetta handmade']]},
+  {id:'borsa-rosa-frange', title:'Borsa rosa cipria con frange', cat:BORSE, status:null, imgs:['fr12'], ratio:'3/4',
+   alt:'Borsa all\'uncinetto rosa cipria con manico ricavato nel corpo e frange ai lati, tenuta in mano su un balcone',
+   price:{from:30,to:30,chips:['30 €'],note:'Prezzo indicativo per questo modello. Può variare in base a dimensioni e materiali.'},
+   specs:[['Colore','Rosa cipria'],['Manico','Ricavato nel corpo della borsa'],['Dettaglio','Frange ai lati']]},
+  {id:'bracciale-dorato', title:'Bracciale dorato all\'uncinetto', cat:ACC, status:null, imgs:['brc1','brc2'], ratio:'3/4',
+   alt:'Bracciale all\'uncinetto in filo dorato, da solo e al polso',
+   price:{from:10,to:10,chips:['10 €'],note:'Prezzo indicativo per questo modello. Può variare in base a dimensioni e materiali.'},
+   videos:[{label:'Al polso',src:'media/bracciale-1.mp4',poster:'media/bracciale-1.jpg',w:608,h:1080}],
+   specs:[['Colore','Oro'],['Lavorazione','Uncinetto, filo dorato']]},
+  {id:'portaaccendino', title:'Portaccendino all\'uncinetto', cat:ACC, status:null, imgs:['accP'], ratio:'3/4', videos:[{label:'Video 1',src:'media/accendino-1.mp4',poster:'media/accendino-1.jpg',w:608,h:810},{label:'Video 2',src:'media/accendino-2.mp4',poster:'media/accendino-2.jpg',w:608,h:1080}],
+   alt:'Portaccendino all\'uncinetto con cordino, con l\'accendino dentro',
+   price:{from:4,to:4,chips:['4 €'],note:'Prezzo per pezzo.'},
+   specs:[['Colori','Vari colori disponibili'],['Lavorazione','Uncinetto'],['Dettaglio','Con cordino']]},
+  {id:'clutch-nera', title:'Clutch nera', cat:CLUTCH, status:null, imgs:['neraP'], ratio:'3/4', videos:[{label:'Video 1',src:'media/nera-1.mp4',poster:'media/nera-1.jpg',w:608,h:810},{label:'Video 2',src:'media/nera-2.mp4',poster:'media/nera-2.jpg',w:608,h:890}],
+   alt:'Clutch nera in licra effetto ecopelle, tenuta in mano su un balcone',
+   price:{from:35,to:35,chips:['35 €'],note:'Prezzo indicativo per questo modello. Può variare in base a dimensioni e materiali.'},
+   specs:[['Colore','Nero'],['Materiale','Licra effetto ecopelle'],['Lavorazione','Uncinetto']]},
+  {id:'custodia-anguria', title:'Custodia ad anguria', cat:ACC, status:null, imgs:['wm1','wm2','wm3'], ratio:'3/4',
+   alt:'Custodia all\'uncinetto a forma di fetta di anguria, rossa con bordo verde e semini neri, con chiusura a scatto, vista da chiusa e aperta con degli occhiali dentro',
+   price:{from:10,to:10,chips:['10 €'],note:'Prezzo indicativo per pezzo.'},
+   specs:[['Colori','Rosso, verde, rosa e nero'],['Lavorazione','Uncinetto'],['Chiusura','A scatto']]},
+  {id:'portachiavi-stella', title:'Portachiavi stella marina', cat:PORTA, status:null, imgs:['star1','star2'], ratio:'3/4',
+   alt:'Portachiavi a forma di stella marina rossa all\'uncinetto, con anello in metallo',
+   price:{from:7,to:7,chips:['7 €'],note:'Prezzo per pezzo.'},
+   specs:[['Colore','Rosso'],['Lavorazione','Uncinetto, amigurumi']]},
+  {id:'piantina', title:'Piantina all\'uncinetto', cat:ACC, status:null, imgs:['plant','vine'], ratio:'3/4',
+   alt:'Vasetto marrone all\'uncinetto con occhietti e foglioline verdi che pendono, tenuto in mano',
+   price:{from:10,to:10,chips:['10 €'],note:'Prezzo per pezzo.'},
+   specs:[['Colori','Marrone e verde'],['Lavorazione','Uncinetto']]},
+  {id:'pochette-rosa', title:'Pochette rosa', cat:POCHETTE, status:null, imgs:['pr1'], ratio:'3/4', videos:[{label:'Video',src:'media/pochette-rosa-1.mp4',poster:'media/pochette-rosa-1.jpg',w:608,h:1080}],
+   alt:'Pochette all\'uncinetto rosa con piccolo manico ad anello, tenuta in mano su un balcone',
+   specs:[['Colore','Rosa'],['Manico','Piccolo manico ad anello']]},
+  {id:'clutch-marrone-catenella', title:'Clutch marrone con catenella', cat:CLUTCH, status:'venduta', imgs:['cc1'], ratio:'3/4', videos:[{label:'Video',src:'media/clutch-catena-1.mp4',poster:'media/clutch-catena-1.jpg',w:608,h:1080}],
+   alt:'Clutch all\'uncinetto marrone con catenella dorata, appesa a una mano su un balcone',
+   price:{from:35,to:35,chips:['35 €'],note:'Questo pezzo è già stato venduto. Prezzo indicativo per una clutch simile (non foderata): può variare in base a dimensioni e materiali.'},
+   specs:[['Colore','Marrone'],['Catenella','Inclusa'],['Interno','Non foderata']]},
+  {id:'cactus', title:'Cactus all\'uncinetto', cat:ACC, status:null, imgs:['cactus2','cactus'], ratio:'4/5',
+   alt:'Cactus all\'uncinetto in un vasetto marrone con fiore viola',
+   price:{from:10,to:10,chips:['10 €','Con vasetto'],note:'Prezzo indicativo.'}, specs:[]},
+  {id:'gattini', title:'Gattini all\'uncinetto', cat:ACC, status:null, imgs:['cat10','cat3','cat8','cat4','cats'], ratio:'3/4',
+   alt:'Gattini all\'uncinetto visti di spalle: bianchi con fiocco lilla, arancioni e neri, in due misure',
+   price:{from:3,to:3,chips:['3 €','Il singolo gattino'],note:'Prezzo per gattino, senza portachiavi. Prezzo indicativo.'},
+   specs:[['Colori','Bianco con fiocco lilla, arancione, nero'],['Misure','Due misure: più grandi e più piccoli']]},
+  {id:'camice-ricamato', title:'Camice con ricami personalizzati', cat:PERS, status:null, imgs:['shirt','ric'], ratio:'4/5',
+   alt:'Camice bianco con iniziale K blu e provetta verde ricamate sul taschino, con righello per le misure',
+   price:{from:12,to:12,chips:['12 €','Ricamo piccolo/medio'],note:'Prezzo per un ricamo di dimensioni piccole o medie. Per ricami più grandi o più complessi scrivici su Instagram.'},
+   specs:[['Personalizzazione','Iniziale e disegno ricamati sul taschino'],['Ricami','Iniziale "K" in filo blu, provetta con bollicine in verde'],['Misure','Iniziale alta circa 4 cm (dal righello in foto)']]},
+];
+const CAT_COVER = {[BORSE]:'ring',[CUCITE]:'nodo1',[CLUTCH]:'cl_hero',[POCHETTE]:'blueA',[PORTA]:'beer',[ACC]:'gl_all',[PERS]:'shirt'};
+const STATUS_LABEL = {venduta:'Venduta', richiesta:'Su richiesta', disponibile:'Disponibile'};
+
+/* ---------- Componenti (funzioni pure che restituiscono HTML) ---------- */
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const StatusBadge = p => p.hot ? `<span class="badge badge--hot">Molto richiesta</span>` : p.status ? `<span class="badge ${p.status==='venduta'?'badge--sold':''}">${STATUS_LABEL[p.status]}</span>` : '';
+const ProductCard = p => `
+  <a class="card" href="#prodotto-${p.id}">
+    <div class="card__img"><img src="${TH(p.cover||p.imgs[0])}" alt="${esc(p.alt)}" loading="lazy">${StatusBadge(p)}</div>
+    <div class="card__body"><span class="label">${esc(p.cat)}</span><h3>${esc(p.title)}</h3>${CardMeta(p)}</div>
+  </a>`;
+const CardMeta = p => {
+  const bits=[]; if(p.variants) bits.push(p.variants.length+' colori'); if(p.price) bits.push(p.price.custom?'Su richiesta':(p.price.from===p.price.to?'':'da ')+p.price.from+' €');
+  return bits.length?`<span class="meta">${bits.join(' · ')}</span>`:'';
+};
+const CategoryTile = c => `
+  <a class="cat" href="#catalogo-${slug(c)}">
+    <div class="arch"><img src="${TH(CAT_COVER[c])}" alt="" loading="lazy"></div>
+    <b>${esc(c)}</b>
+  </a>`;
+const InstagramButton = (label, extra='') => `<a class="btn btn--ig" ${extra} href="${IG}" target="_blank" rel="noopener">${IG_ICON}${label}</a>`;
+const PriceBand = p => p.price ? `
+  <div class="price">
+    <span class="label">Fascia di prezzo indicativa</span>
+    <div class="price__scale">${(p.price.chips||['Da '+p.price.from+' €','Fino a '+p.price.to+' €']).map(c=>`<span>${c}</span>`).join('')}</div>
+    <p class="price__note">${p.price.note}</p>
+  </div>` : `
+  <div class="price">
+    <span class="label">Fascia di prezzo indicativa</span>
+    <div class="price__scale" aria-label="Fascia di prezzo da definire"><span>€</span><span>€€</span><span>€€€</span><em>Da definire</em></div>
+  </div>`;
+const ConfigBlock = c => `
+  <div class="cfg">
+    <span class="label">${esc(c.title)}</span>
+    <p class="cfg__lead">${esc(c.lead)}</p>
+    <table class="cfg__t"><thead><tr><th scope="col">Misura</th>${c.opts.map(o=>`<th scope="col">${esc(o)}</th>`).join('')}<th scope="col">Prezzo</th></tr></thead>
+    <tbody>${c.sizes.map(z=>`<tr><th scope="row">${esc(z.n)}</th>${c.opts.map(()=>'<td aria-label="Disponibile">✓</td>').join('')}<td>${esc(z.price)}</td></tr>`).join('')}</tbody></table>
+    <ul class="cfg__x">${c.extras.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>
+    <p class="price__note">${esc(c.note)}</p>
+  </div>`;
+const slug = s => s.toLowerCase().replace(/[^a-z]+/g,'-').replace(/^-|-$/g,'');
+
+/* ---------- Pagine ---------- */
+function Home(){
+  const spo = WORK.filter(isSpoiler), done = WORK.filter(w=>!isSpoiler(w));
+  const latest = ['triangle-bag','french-bag','clutch-bicolore','clutch-ecopelle','clutch-viola','pochette-velluto','portaoggetti-righe'].map(id=>PRODUCTS.find(p=>p.id===id));
+  return `
+  <section class="hero">
+    <span class="wash wash--a"></span><span class="wash wash--b"></span><span class="wash wash--c"></span>
+    <div class="wrap">
+      <div class="hero__grid">
+        <div class="hero__text">
+          <span class="label">Uncinetto e non solo</span>
+          <h1>Ogni filo racconta una <span class="script">storia</span></h1>
+          <p class="hero__lead">Borse, clutch e piccoli accessori realizzati interamente a mano. Idee regalo e pezzi personalizzabili.</p>
+          <div class="hero__cta">
+            <a class="btn btn--primary" href="#catalogo">Scopri le creazioni</a>
+            <a class="btn btn--ghost" href="${IG}" target="_blank" rel="noopener">Scrivi su Instagram</a>
+          </div>
+        </div>
+        <div class="hero__art">
+          <div class="arch hero__arch"><img src="${IMG.cl_hero}" alt="Clutch champagne fatta a mano con interno in raso"></div>
+          <img class="hero__seal" src="${IMG.logo}" alt="Sigillo con il logo Sissi Handmade">
+        </div>
+      </div>
+      <div class="facts">
+        <div><b>100%</b><span>realizzate a mano</span></div>
+        <div><b>Su misura</b><span>pezzi personalizzabili</span></div>
+        <div><b>Regali</b><span>idee per ogni occasione</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="sec-ultime">
+    <div class="wrap">
+      <div class="sec__row">
+        <div class="sec__head"><span class="label">Dal laboratorio</span><h2>Le ultime creazioni</h2></div>
+        <a class="link" href="#catalogo">Vedi tutto</a>
+      </div>
+      <div class="rail">${latest.map(ProductCard).join('')}</div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:8px">
+    <div class="wrap">
+      <div class="sec__head"><span class="label">Catalogo</span><h2>Sfoglia per categoria</h2></div>
+      <div class="cats">${CATS.map(CategoryTile).join('')}</div>
+    </div>
+  </section>
+
+  <section class="sec" id="sec-richiesta">
+    <div class="wrap">
+      <div class="ask">
+        <span class="wash wash--b"></span>
+        <div class="ask__in">
+          <div class="sec__head" style="margin:0">
+            <span class="label">Su richiesta</span>
+            <h2>Un pezzo <span class="script" style="font-size:1.25em">tutto tuo</span></h2>
+            <p>Ti piace una creazione già venduta, o ne vuoi una personalizzata? Scrivici su Instagram e ne parliamo.</p>
+            <div style="margin-top:12px">${InstagramButton('Richiedi su Instagram')}</div>
+          </div>
+          <ol class="steps">
+            <li><div><b>Scegli una creazione</b><span>Sfoglia il catalogo e salva quella che ti piace.</span></div></li>
+            <li><div><b>Scrivici su Instagram</b><span>Ogni scheda ha un messaggio pronto da incollare.</span></div></li>
+            <li><div><b>Ne parliamo insieme</b><span>Colori, dettagli e tempi si decidono in chat.</span></div></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="sec-lavorazione">
+    <div class="wrap">
+      <div class="sec__head"><span class="label">Lavoro e procedimenti</span><h2>Come nasce una creazione</h2></div>
+      <p class="proc__lead">Ogni pezzo prende forma filo dopo filo, a mano. Qui alcune fasi del lavoro.</p>
+      ${spo.length?`<a class="spoteaser" href="#spoiler"><span class="label">Spoiler</span><b>${spo.length===1?'C\u2019\u00e8 un\u2019anteprima':'Ci sono '+spo.length+' anteprime'} di creazioni in lavorazione</b><span class="link">Guarda</span></a>`:''}
+      <div class="proc">
+        ${done.map(w=>WorkItem(w)).join('')}
+        <figure class="proc__item proc__item--soon">
+          <div class="proc__media"><span>In arrivo</span></div>
+          <figcaption>Altre fasi del lavoro</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="sec-atelier">
+    <div class="wrap">
+      <div class="atelier">
+        <div class="arch atelier__photo"><img src="${IMG.tools}" alt="Struttura metallica per borsa, gomitolo viola, tessuto nero, forbici e metro" loading="lazy"></div>
+        <div class="atelier__text">
+          <h2>Chi sono</h2>
+          <p>Ho scoperto l\'uncinetto quest\'estate, grazie a mia mamma e a mia nonna, che mi hanno passato questa passione. Anche il lavoro a macchina l\'ho imparato da mia mamma. All\'inizio era solo un passatempo, ma i miei lavori piacevano, e così ho deciso di condividerli con chi li avrebbe amati.</p>
+          <p>Mi piace creare borse, e non solo: tutto quello che nasce da un desiderio, da un colore, da un\'idea di qualcuno. Se hai qualcosa in mente, raccontamela: la trasformiamo in qualcosa di fatto a mano, solo per te.</p>
+        </div>
+      </div>
+    </div>
+  </section>`;
+}
+
+const state = {cat:'Tutte', st:'tutte', sim:null};
+
+/* ---------- Lavorazione e spoiler ----------
+   Ogni elemento ha una data di pubblicazione. Per SPOILER_DAYS giorni compare in "Spoiler";
+   dopo passa da solo in "Come nasce una creazione". Senza data: va direttamente in lavorazione. */
+const SPOILER_DAYS = 4;
+const WORK = [
+  {id:'gomitolo', kind:'video', src:'media/gomitolo.mp4', poster:'media/gomitolo.jpg', alt:'Gomitolo di fettuccia blu accanto a una finestra', cap:'Il filo: un gomitolo di fettuccia blu', date:'2026-09-26'},
+  {id:'zebra-tessuto', kind:'photo', img:'zebra', alt:'Tessuto zebrato bianco e nero piegato su un piano scuro, tenuto da una mano', cap:'Tessuto zebrato foderato: sta nascendo una borsetta chic per la sera, con i lati chiusi all\'uncinetto e il manico all\'uncinetto', date:'2026-10-14'},
+  {id:'fodera-rosa', kind:'photo', img:'pk2', alt:'Fodera chiara cucita a mano all\'interno di una borsa all\'uncinetto rosa, con ago e filo', cap:'La fodera viene cucita a mano all\'interno della borsa', date:null},
+  {id:'borsa-ecopelle-wip', kind:'photo', img:'sew', alt:'Ecopelle marrone cucita alla macchina da cucire: una nuova borsa sta prendendo forma', cap:'In lavorazione: una nuova borsa in ecopelle marrone, alla macchina da cucire', date:'2026-10-15'},
+  {id:'borsa-nuova-rosa', kind:'video', src:'media/borsa-nuova-1.mp4', poster:'media/borsa-nuova-1.jpg', alt:'Nuova borsa all\'uncinetto rosa-malva con bottone e fodera, appena finita', cap:'Appena finita: una nuova borsa rosa-malva con bottone e fodera. Nome e prezzo in arrivo', date:'2026-10-14'},
+  {id:'velluto-lavoro', kind:'video', src:'media/lavoro-blu.mp4', poster:'media/lavoro-blu.jpg', alt:'Mani che lavorano all\'uncinetto un filo di velluto blu', cap:'Il velluto blu preso in mano: la lavorazione passo dopo passo', date:null},
+  {id:'pochette-blu-wip', kind:'photo', img:'blue', alt:'Lavorazione in corso della pochette in velluto blu, con il gomitolo accanto', cap:'La pochette in velluto blu, ancora in lavorazione', date:null}
+];
+const workAge = w => {
+  if(!w.date) return Infinity;
+  const base = new Date(w.date+'T00:00:00'); let now = new Date();
+  if(state.sim!==null && w.id==='gomitolo') now = new Date(base.getTime()+state.sim*864e5+36e5);
+  return Math.floor((now-base)/864e5);
+};
+const isSpoiler = w => workAge(w) < SPOILER_DAYS;
+const WorkMedia = w => w.kind==='video'
+  ? `<video data-loop src="${w.src}" poster="${w.poster}" autoplay muted loop playsinline preload="metadata" aria-label="${esc(w.alt)}"></video>`
+  : `<img src="${TH(w.img)}" alt="${esc(w.alt)}" loading="lazy">`;
+const WorkItem = (w,extra='') => `
+  <figure class="proc__item">
+    <div class="proc__media">${WorkMedia(w)}${extra}</div>
+    <figcaption>${esc(w.cap)}</figcaption>
+  </figure>`;
+const SpoilerBadge = () => `<span class="badge badge--hot">Spoiler</span>`;
+
+function Catalog(){
+  return `
+  <section class="wrap">
+    <div class="page-head">
+      <span class="label">Catalogo</span>
+      <h1>Le creazioni</h1>
+      <p>Tutte le foto sono di pezzi veri, fatti a mano.</p>
+    </div>
+    <div class="filters">
+      <div class="chips-wrap"><div class="chips" id="chips" role="group" aria-label="Categorie"></div></div>
+      <div class="seg" id="seg" role="group" aria-label="Stato"></div>
+    </div>
+    <p class="count" id="count" aria-live="polite"></p>
+    <div class="grid" id="grid"></div>
+  </section>`;
+}
+function paintCatalog(){
+  const cats = ['Tutte',...CATS];
+  document.getElementById('chips').innerHTML = cats.map(c=>`<button class="chip" data-cat="${esc(c)}" aria-pressed="${state.cat===c}">${esc(c)}</button>`).join('');
+  const sts = [['tutte','Tutte'],['venduta','Vendute'],['richiesta','Su richiesta']];
+  document.getElementById('seg').innerHTML = sts.map(([k,l])=>`<button data-st="${k}" aria-pressed="${state.st===k}">${l}</button>`).join('');
+  const list = PRODUCTS.filter(p=>(state.cat==='Tutte'||p.cat===state.cat)&&(state.st==='tutte'||p.status===state.st||(state.st==='venduta'&&p.variants&&p.variants.some(v=>v.sold))));
+  document.getElementById('count').textContent = list.length===1?'1 creazione':`${list.length} creazioni`;
+  document.getElementById('grid').innerHTML = list.length ? list.map(ProductCard).join('') : `
+    <div class="empty"><h3>Nessuna creazione qui, per ora</h3>
+    <p>Gli stati delle creazioni si aggiornano man mano. Intanto puoi chiedere un pezzo su richiesta.</p>
+    ${InstagramButton('Richiedi su Instagram')}</div>`;
+}
+
+function Product(id){
+  const p = PRODUCTS.find(x=>x.id===id);
+  if(!p) return `<section class="wrap"><a class="back" href="#catalogo">Torna al catalogo</a><div class="empty"><h3>Creazione non trovata</h3></div></section>`;
+  const msg = `Ciao Sissi! Vorrei informazioni su "${p.title}" che ho visto sul sito.`;
+  const sold = p.status==='venduta';
+  const ctaLabel = sold ? 'Richiedine una simile su Instagram' : 'Richiedi su Instagram';
+  const specs = [...p.specs, ['Materiali',null],['Misure',null]].map(([k,v])=>`<div><dt>${esc(k)}</dt><dd class="${v?'':'todo'}">${v?esc(v):'Da completare'}</dd></div>`).join('');
+  const related = PRODUCTS.filter(x=>x.cat===p.cat&&x.id!==p.id).concat(PRODUCTS.filter(x=>x.cat!==p.cat&&x.id!==p.id)).slice(0,4);
+  return `
+  <section class="wrap">
+    <a class="back" href="#catalogo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>Catalogo</a>
+    <div class="pdp">
+      <div class="gal">
+        <div class="gal__track" id="track" tabindex="0" style="aspect-ratio:${p.ratio||'5/6'}" aria-label="Foto di ${esc(p.title)}">${p.imgs.map((k,i)=>`<img src="${IMG[k]}" alt="${esc(p.alt)}${p.imgs.length>1?' (foto '+(i+1)+')':''}">`).join('')}</div>
+        ${p.imgs.length>1?`<div class="dots" id="dots">${p.imgs.map((_,i)=>`<i class="${i?'':'on'}"></i>`).join('')}</div>`:''}
+        <div class="modes" role="tablist" aria-label="Modalità di visualizzazione">
+          <button role="tab" aria-selected="true" data-mode="foto">Foto</button>
+          ${p.videos?'<button role="tab" aria-selected="false" data-mode="video">Video</button>':''}
+          <button role="tab" aria-selected="false" class="soon" data-mode="360">360° <small>In arrivo</small></button>
+          <button role="tab" aria-selected="false" class="soon" data-mode="3d">3D <small>In arrivo</small></button>
+        </div>
+        ${p.videos?`<div class="vidbox" id="vidbox" hidden>
+          <video id="vid" controls playsinline muted loop preload="metadata" poster="${p.videos[0].poster}" src="${p.videos[0].src}" style="aspect-ratio:${p.videos[0].w}/${p.videos[0].h}"></video>
+          ${p.videos.length>1?`<div class="vidbox__row">${p.videos.map((v,i)=>`<button class="chip vchip" data-vid="${i}" aria-pressed="${i===0}">${esc(v.label||('Video '+(i+1)))}</button>`).join('')}</div>`:''}
+        </div>`:''}
+        <div class="soon-panel" id="soon" hidden>
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><ellipse cx="32" cy="40" rx="24" ry="9" stroke-dasharray="3 5"/><path d="M20 28c0-8 5-14 12-14s12 6 12 14v6c0 3-24 3-24 0z"/><path d="M52 36l5-4m0 0l-1 6m1-6l-6-1"/></svg>
+          <p id="soon-txt"></p>
+        </div>
+      </div>
+      <div class="info">
+        <div class="info__top">
+          <span class="label">${esc(p.cat)}</span>
+          <h1>${esc(p.title)}</h1>
+          ${p.blurb?`<p class="blurb">${esc(p.blurb)}</p>`:''}
+          ${p.status?`<span class="pill ${sold?'pill--sold':''}">${STATUS_LABEL[p.status]}</span>`:''}
+        </div>
+        ${p.variants?`<div class="vars"><span class="label">Colori</span>
+          <div class="vars__row" id="vars" role="group" aria-label="Colori">${p.variants.map((v,i)=>`<button class="chip vchip" data-var="${i}" aria-pressed="${i===0}"><i style="background:${v.color}"></i>${esc(v.n)}${v.sold?' · venduta':''}</button>`).join('')}</div>
+          <p class="vars__note" id="vnote">${esc(p.variants[0].note)}</p></div>`:''}
+        ${PriceBand(p)}
+        ${p.config?ConfigBlock(p.config):''}
+        <dl class="specs">${specs}</dl>
+        <div class="msg">
+          <span class="label">Messaggio pronto per Instagram</span>
+          <p id="msg-text">${esc(msg)}</p>
+          <div class="row"><button class="copy" id="copy" data-msg="${esc(msg)}">Copia messaggio</button><small id="copy-note">Poi incollalo nella chat.</small></div>
+        </div>
+        <div class="cta-inline">${InstagramButton(ctaLabel)}</div>
+      </div>
+    </div>
+  </section>
+  <div class="cta-bar">${InstagramButton(ctaLabel)}</div>
+  <section class="wrap more">
+    <div class="sec__head"><span class="label">Altre creazioni</span><h2>Potrebbe piacerti</h2></div>
+    <div class="rail">${related.map(ProductCard).join('')}</div>
+  </section>`;
+}
+
+function Footer(){
+  return `
+  <footer class="ftr" id="contatti">
+    <span class="wash wash--a"></span>
+    <div class="wrap ftr__in">
+      <img src="${IMG.logo}" alt="Logo Sissi Handmade">
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <h2><span class="script" style="font-size:1.35em">Ogni filo racconta una storia</span></h2>
+        <p>Per richieste, informazioni e pezzi personalizzati scrivici su Instagram: <span class="handle">@_sissi_handmade</span></p>
+        <small>Handmade with love by @_sissi_come_no · © 2026 Sissi Handmade</small>
+      </div>
+      ${InstagramButton('Scrivici su Instagram')}
+    </div>
+  </footer>`;
+}
+
+/* ---------- Router (hash semplici: #home, #catalogo, #catalogo-<categoria>, #prodotto-<id>) ---------- */
+const app = document.getElementById('app');
+function Spoiler(){
+  const act = WORK.filter(isSpoiler);
+  const sim = state.sim;
+  return `
+  <section class="wrap spo">
+    <span class="label">Anteprime</span>
+    <h1>Spoiler</h1>
+    <p class="proc__lead">Un assaggio delle creazioni che sto ancora realizzando. Non c\u2019è una data di uscita: arrivano quando sono pronte. Dopo qualche giorno le anteprime passano in <a class="link" href="#lavorazione">Come nasce una creazione</a>.</p>
+    ${act.length?`<div class="proc">${act.map(w=>WorkItem(w,SpoilerBadge())).join('')}</div>`:`
+    <div class="empty"><h3>Nessuno spoiler per ora</h3><p>Quando ci sarà una nuova anteprima la troverai qui per qualche giorno.</p></div>`}
+    <div class="demo">
+      <span class="label">Come funziona (anteprima di design)</span>
+      <p>Ogni foto o video ha una data. Per qualche giorno sta in Spoiler, poi si sposta da solo in «Come nasce una creazione». Non c'è nessun conto alla rovescia né una data di uscita da rispettare. Il caricamento dalla tua area privata non c'è ancora: per ora le anteprime le inserisco io.</p>
+      ${sim===null?`<button class="chip" id="sim-on" type="button">Prova la simulazione</button>`:`
+      <label class="demo__row" for="sim">Giorni dall'inserimento: <b id="sim-n">${sim}</b>
+        <input type="range" id="sim" min="0" max="6" step="1" value="${sim}"></label>
+      <p class="price__note">Simulazione (non reale): il video del gomitolo viene trattato come pubblicato ${sim} ${sim===1?'giorno':'giorni'} fa. ${sim<SPOILER_DAYS?'Compare qui, in Spoiler.':'È passato in «Come nasce una creazione».'}</p>
+      <button class="chip" id="sim-off" type="button">Termina la simulazione</button>`}
+      <div class="upl" aria-disabled="true"><span>Carica un nuovo spoiler</span><small>In arrivo, nell'area privata</small></div>
+    </div>
+  </section>`;
+}
+
+function route(){
+  const h = (location.hash||'#home').slice(1);
+  let view='home', scrollTo=null;
+  if(h.startsWith('prodotto-')){ app.innerHTML = Product(h.slice(9)) + Footer(); view='prodotto'; bindProduct(); }
+  else if(h==='spoiler'){ app.innerHTML = Spoiler()+Footer(); view='spoiler'; }
+  else if(h==='catalogo' || h.startsWith('catalogo-')){
+    if(h.startsWith('catalogo-')){ const c = CATS.find(c=>slug(c)===h.slice(9)); state.cat = c||'Tutte'; state.st='tutte'; }
+    app.innerHTML = Catalog()+Footer(); paintCatalog(); view='catalogo';
+  } else {
+    app.innerHTML = Home()+Footer();
+    scrollTo = {'su-richiesta':'sec-richiesta','chi-sono':'sec-atelier','atelier':'sec-atelier','lavorazione':'sec-lavorazione','contatti':'contatti'}[h]||null;
+  }
+  try{ if(matchMedia('(prefers-reduced-motion: reduce)').matches) document.querySelectorAll('video[data-loop]').forEach(v=>{v.removeAttribute('autoplay'); v.pause();}); }catch(e){}
+  document.querySelectorAll('.nav a').forEach(a=>a.removeAttribute('aria-current'));
+  const key = scrollTo ? h : view==='prodotto' ? 'catalogo' : view;
+  const cur = document.querySelector(`.nav a[data-nav="${key}"]`); if(cur) cur.setAttribute('aria-current','page');
+  if(scrollTo){ const el=document.getElementById(scrollTo); if(el) el.scrollIntoView({behavior:'instant',block:'start'}); }
+  else window.scrollTo(0,0);
+}
+window.addEventListener('hashchange',route);
+
+/* ---------- Interazioni ---------- */
+function bindProduct(){
+  const track = document.getElementById('track'), dots = document.querySelectorAll('#dots i');
+  if(track && dots.length) track.addEventListener('scroll',()=>{
+    const i = Math.round(track.scrollLeft/track.clientWidth);
+    dots.forEach((d,k)=>d.classList.toggle('on',k===i));
+  },{passive:true});
+}
+document.addEventListener('input',e=>{
+  if(e.target.id==='sim'){ state.sim=+e.target.value; const y=window.scrollY; route(); window.scrollTo(0,y); }
+});
+document.addEventListener('click',e=>{
+  if(e.target.closest('#sim-on')){ state.sim=0; const y=window.scrollY; route(); window.scrollTo(0,y); return; }
+  if(e.target.closest('#sim-off')){ state.sim=null; const y=window.scrollY; route(); window.scrollTo(0,y); return; }
+
+  const chip=e.target.closest('[data-cat]'); if(chip){ state.cat=chip.dataset.cat; paintCatalog(); return; }
+  const seg=e.target.closest('[data-st]'); if(seg){ state.st=seg.dataset.st; paintCatalog(); return; }
+  const vb=e.target.closest('[data-var]');
+  if(vb){
+    const p=PRODUCTS.find(x=>x.id===(location.hash.slice(10))); const v=p&&p.variants[+vb.dataset.var]; if(!v) return;
+    document.querySelectorAll('[data-var]').forEach(b=>b.setAttribute('aria-pressed',b===vb));
+    document.getElementById('vnote').textContent=v.note;
+    const t=document.getElementById('track'); if(t) t.scrollTo({left:v.img*t.clientWidth,behavior:'smooth'});
+    return;
+  }
+  const vsel=e.target.closest('[data-vid]');
+  if(vsel){
+    const p=PRODUCTS.find(x=>x.id===location.hash.slice(10)); const v=p&&p.videos[+vsel.dataset.vid]; const el=document.getElementById('vid'); if(!v||!el) return;
+    document.querySelectorAll('[data-vid]').forEach(b=>b.setAttribute('aria-pressed',b===vsel));
+    el.poster=v.poster; el.src=v.src; el.style.aspectRatio=v.w+'/'+v.h; el.play().catch(()=>{}); return;
+  }
+  const mode=e.target.closest('[data-mode]');
+  if(mode){
+    document.querySelectorAll('[data-mode]').forEach(b=>b.setAttribute('aria-selected',b===mode));
+    const soon=document.getElementById('soon'), txt=document.getElementById('soon-txt');
+    const box=document.getElementById('vidbox'), vid=document.getElementById('vid'), track=document.getElementById('track'), dots=document.getElementById('dots');
+    const m=mode.dataset.mode, isVid=m==='video';
+    if(box){ box.hidden=!isVid; if(isVid){ vid.play().catch(()=>{}); } else { vid.pause(); } }
+    if(track) track.style.display = isVid?'none':''; if(dots) dots.style.display = isVid?'none':'';
+    if(m==='foto'||isVid){ soon.hidden=true; }
+    else { soon.hidden=false; txt.textContent = m==='360'
+      ? 'In arrivo: potrai far ruotare la borsa a 360°, a partire da foto reali scattate da ogni lato.'
+      : 'In arrivo: la vista 3D, quando le foto della borsa permetteranno una ricostruzione fedele.'; }
+    return;
+  }
+  const copy=e.target.closest('#copy');
+  if(copy){
+    const note=document.getElementById('copy-note');
+    const fallback=()=>{ const r=document.createRange(); r.selectNodeContents(document.getElementById('msg-text')); const s=getSelection(); s.removeAllRanges(); s.addRange(r); note.textContent='Seleziona e copia il testo.'; };
+    try{ navigator.clipboard.writeText(copy.dataset.msg).then(()=>{ copy.textContent='Copiato'; note.textContent='Ora incollalo nella chat di Instagram.'; },fallback); }catch(_){ fallback(); }
+  }
+});
+const menu=document.getElementById('menu'), openB=document.getElementById('menu-open');
+function setMenu(o){ menu.hidden=!o; openB.setAttribute('aria-expanded',o); document.body.style.overflow=o?'hidden':''; if(o) document.getElementById('menu-close').focus(); else openB.focus(); }
+openB.addEventListener('click',()=>setMenu(true));
+document.getElementById('menu-close').addEventListener('click',()=>setMenu(false));
+menu.addEventListener('click',e=>{ if(e.target.closest('[data-close]')) setMenu(false); });
+document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&!menu.hidden) setMenu(true&&false); });
+document.getElementById('logo-h').src=IMG.logo; document.getElementById('logo-m').src=IMG.logo;
+route();
+</script>
+
+</body>
+</html>
