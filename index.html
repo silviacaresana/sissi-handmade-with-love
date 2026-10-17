@@ -384,11 +384,11 @@ const PRODUCTS = [
    alt:'French Bag all\'uncinetto con patta, frange ed etichetta a fiore',
    price:{from:20,to:35,chips:['Mini da 20 €','Fino a 35 €'],note:'I modelli più grandi, in un materiale particolare, arrivano a 35 €. Il prezzo esatto dipende da dimensioni e materiale.'},
    variants:[
-     {n:'Fucsia', img:0, color:'#C21E63', note:'Fucsia, con tracolla intrecciata e anelli dorati.'},
-     {n:'Verde acqua', img:1, color:'#2E9C98', note:'Verde acqua, con tracolla intrecciata e anelli argentati.'},
-     {n:'Verde foresta', img:2, color:'#2F4A3E', sold:true, note:'Verde foresta con dettagli ramati, catenella dorata e bottone automatico. Foderata con taschina interna.'}
+     {n:'Fucsia', img:0, color:'#C21E63', note:'Fucsia, in lycra, con tracolla intrecciata e anelli dorati.'},
+     {n:'Verde acqua', img:1, color:'#2E9C98', note:'Verde acqua, in lycra, con tracolla intrecciata e anelli argentati.'},
+     {n:'Verde foresta', img:2, color:'#2F4A3E', sold:true, note:'Verde foresta, in cordino, con dettagli ramati, catenella dorata e bottone automatico. Foderata con taschina interna.'}
    ],
-   specs:[['Modello','French Bag, in versione mini e in versioni più grandi'],['Chiusura','Patta'],['Dettagli','Frange e etichetta "handmade with" a forma di fiore']]},
+   specs:[['Modello','French Bag, in versione mini e in versioni più grandi'],['Materiali','Lycra (fucsia e verde acqua) o cordino (verde foresta con dettagli ramati). Su ordinazione anche in ecopelle o in tulle'],['Chiusura','Patta'],['Dettagli','Frange e etichetta "handmade with" a forma di fiore']]},
   {id:'clutch-bicolore', title:'Clutch bicolore', cat:CLUTCH, status:null, imgs:['bic1','bic2','bic3','bic4','bicolore'], ratio:'4/3',
    alt:'Clutch all\'uncinetto bordeaux con bordo intrecciato color panna',
    price:{from:35,to:35,chips:['35 €'],note:'Prezzo indicativo per questo modello. Può variare in base a dimensioni e materiali.'},
@@ -777,7 +777,7 @@ function Product(id){
   const msg = `Ciao Sissi! Vorrei informazioni su "${p.title}" che ho visto sul sito.`;
   const sold = p.status==='venduta';
   const ctaLabel = sold ? 'Richiedine una simile su Instagram' : 'Richiedi su Instagram';
-  const specs = [...p.specs, ['Materiali',null],['Misure',null]].map(([k,v])=>`<div><dt>${esc(k)}</dt><dd class="${v?'':'todo'}">${v?esc(v):'Da completare'}</dd></div>`).join('');
+  const has=r=>p.specs.some(([k])=>r.test(k)); const specs = [...p.specs, ...(has(/^Material/)?[]:[['Materiali',null]]), ...(has(/^Misur|^Dimension/)?[]:[['Misure',null]])].map(([k,v])=>`<div><dt>${esc(k)}</dt><dd class="${v?'':'todo'}">${v?esc(v):'Da completare'}</dd></div>`).join('');
   const related = PRODUCTS.filter(x=>x.cat===p.cat&&x.id!==p.id).concat(PRODUCTS.filter(x=>x.cat!==p.cat&&x.id!==p.id)).slice(0,4);
   return `
   <section class="wrap">
