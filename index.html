@@ -551,7 +551,7 @@ videos:[{label:'Video 1',src:'media/zigzag-1.mp4',poster:'media/zigzag-1.jpg',w:
   {id:'borsa-nodo-giapponese', title:'Borsa nodo giapponese', cat:CUCITE, status:null, imgs:['nj3','nj1','nj2','nj4','nj5','nj6'], ratio:'3/4',
    alt:'Borsa a nodo giapponese in ecopelle, con il manico annodato al polso, nera e blu',
    price:{from:15,to:15,chips:['15 € in offerta'],note:'Prezzo di lancio: in seguito diventerà 20 €. Scrivici su Instagram per scegliere il colore.'},
-   specs:[['Modello','Nodo giapponese'],['Materiale','Ecopelle'],['Cuciture','A macchina da cucire'],['Colori','Nero, bianco, blu, bordeaux, rosa, marrone']]},
+   specs:[['Modello','Nodo giapponese'],['Materiale','Ecopelle'],['Cuciture','A macchina da cucire'],['Colori','Nero, bianco, blu, bordeaux, rosa, marrone e altri su ordinazione']]},
   {id:'clutch-marrone-catenella', title:'Clutch marrone con catenella', cat:CLUTCH, status:'venduta', imgs:['cc1'], ratio:'3/4', videos:[{label:'Video',src:'media/clutch-catena-1.mp4',poster:'media/clutch-catena-1.jpg',w:608,h:1080}],
    alt:'Clutch all\'uncinetto marrone con catenella dorata, appesa a una mano su un balcone',
    price:{from:35,to:35,chips:['35 €'],note:'Questo pezzo è già stato venduto. Prezzo indicativo per una clutch simile (non foderata): può variare in base a dimensioni e materiali.'},
@@ -580,7 +580,7 @@ const ProductCard = p => `
     <div class="card__body"><span class="label">${esc(p.cat)}</span><h3>${esc(p.title)}</h3>${CardMeta(p)}</div>
   </a>`;
 const CardMeta = p => {
-  const bits=[]; if(p.variants) bits.push(p.variants.length+' colori'); if(p.price) bits.push(p.price.custom?'Su richiesta':(p.price.from===p.price.to?'':'da ')+p.price.from+' €');
+  const bits=[]; if(p.variants) bits.push('Più colori'); if(p.price) bits.push(p.price.custom?'Su richiesta':(p.price.from===p.price.to?'':'da ')+p.price.from+' €');
   return bits.length?`<span class="meta">${bits.join(' · ')}</span>`:'';
 };
 const CategoryTile = c => `
@@ -808,9 +808,10 @@ function Product(id){
           ${p.blurb?`<p class="blurb">${esc(p.blurb)}</p>`:''}
           ${p.status?`<span class="pill ${sold?'pill--sold':''}">${STATUS_LABEL[p.status]}</span>`:''}
         </div>
-        ${p.variants?`<div class="vars"><span class="label">Colori</span>
+        ${p.variants?`<div class="vars"><span class="label">Colori in foto</span>
           <div class="vars__row" id="vars" role="group" aria-label="Colori">${p.variants.map((v,i)=>`<button class="chip vchip" data-var="${i}" aria-pressed="${i===0}"><i style="background:${v.color}"></i>${esc(v.n)}${v.sold?' · venduta':''}</button>`).join('')}</div>
-          <p class="vars__note" id="vnote">${esc(p.variants[0].note)}</p></div>`:''}
+          <p class="vars__note" id="vnote">${esc(p.variants[0].note)}</p>
+          <p class="vars__note">Su ordinazione si può scegliere qualsiasi altro colore.</p></div>`:''}
         ${PriceBand(p)}
         ${p.config?ConfigBlock(p.config):''}
         <dl class="specs">${specs}</dl>
