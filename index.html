@@ -310,6 +310,13 @@ button{font:inherit;color:inherit}
   html{scroll-behavior:auto}
   *{transition:none!important}
 }
+.mk{display:grid;gap:16px;grid-template-columns:1fr;margin-top:8px}
+.mk figure{margin:0}
+.mk figcaption{margin-top:8px;font-size:.92rem;color:var(--ink-soft)}
+.mk img{width:100%;height:auto;display:block;border-radius:14px 56px 14px 56px;background:var(--tint)}
+.mk__cta{margin-top:28px;padding:24px;border:1px dashed var(--gold);border-radius:24px;display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.mk__cta p{color:var(--ink-soft);max-width:46ch}
+@media(min-width:700px){.mk{grid-template-columns:1fr 1fr;align-items:start}.mk figure:nth-child(2){grid-column:span 1}}
 /* Cornice foto: petalo inverso */
 .arch,.gal__track{border-radius:24px 140px 24px 140px}
 .cat .arch{border-radius:20px}
@@ -332,6 +339,7 @@ button{font:inherit;color:inherit}
       <a href="#catalogo" data-nav="catalogo">Catalogo</a>
       <a href="#su-richiesta" data-nav="su-richiesta">Su richiesta</a>
       <a href="#spoiler" data-nav="spoiler">Spoiler</a>
+      <a href="#mercatini" data-nav="mercatini">Mercatini</a>
       <a href="#chi-sono" data-nav="chi-sono">Chi sono</a>
       <a href="#contatti" data-nav="contatti">Contatti</a>
     </nav>
@@ -356,6 +364,7 @@ button{font:inherit;color:inherit}
     <a href="#catalogo" data-close>Catalogo <small>Sfoglia</small></a>
     <a href="#su-richiesta" data-close>Su richiesta</a>
     <a href="#spoiler" data-close>Spoiler <small>Anteprime</small></a>
+    <a href="#mercatini" data-close>Mercatini <small>Vieni a trovarmi</small></a>
     <a href="#chi-sono" data-close>Chi sono</a>
     <a href="#contatti" data-close>Contatti</a>
   </nav>
@@ -372,7 +381,7 @@ button{font:inherit;color:inherit}
 
 <script>
 /* Immagini reali ritagliate dagli screenshot del profilo Instagram, incorporate come data URI. */
-const IMG = {"tbl1": "img/tbl1.jpg", "nj1": "img/nj1.jpg", "nj2": "img/nj2.jpg", "nj3": "img/nj3.jpg", "nj4": "img/nj4.jpg", "nj5": "img/nj5.jpg", "nj6": "img/nj6.jpg", "pn1": "img/pn1.jpg", "pn2": "img/pn2.jpg", "pn3": "img/pn3.jpg", "pn4": "img/pn4.jpg", "pn5": "img/pn5.jpg", "dit1": "img/dit1.jpg", "dit2": "img/dit2.jpg", "dit3": "img/dit3.jpg", "edv1": "img/edv1.jpg", "edv2": "img/edv2.jpg", "fairy3": "img/fairy3.jpg", "fairy1": "img/fairy1.jpg", "fairy2": "img/fairy2.jpg", "french": "img/french.jpg", "beer": "img/beer.jpg", "shirt": "img/shirt.jpg", "blue": "img/blue.jpg", "pinkpouch": "img/pinkpouch.jpg", "ring": "img/ring.jpg", "cats": "img/cats.jpg", "cactus": "img/cactus.jpg", "brown": "img/brown.jpg", "purple": "img/purple.jpg", "tools": "img/tools.jpg", "logo": "img/logo.png", "tealflat": "img/tealflat.jpg", "fucsiaflat": "img/fucsiaflat.jpg", "tealpair": "img/tealpair.jpg", "fucsiapair": "img/fucsiapair.jpg", "stripes": "img/stripes.jpg", "lanyard": "img/lanyard.jpg", "bicolore": "img/bicolore.jpg", "malva1": "img/malva1.jpg", "malva2": "img/malva2.jpg", "cl_front": "img/cl_front.jpg", "cl_side": "img/cl_side.jpg", "cl_lining": "img/cl_lining.jpg", "cl_top": "img/cl_top.jpg", "cl_label": "img/cl_label.jpg", "cl_hero": "img/cl_hero.jpg", "nodo1": "img/nodo1.jpg", "nodo2": "img/nodo2.jpg", "gal1": "img/gal1.jpg", "gal2": "img/gal2.jpg", "gal3": "img/gal3.jpg", "gl_all": "img/gl_all.jpg", "gl_teal": "img/gl_teal.jpg", "gl_pair": "img/gl_pair.jpg", "gf1": "img/gf1.jpg", "gf2": "img/gf2.jpg", "rosa1": "img/rosa1.jpg", "rosa2": "img/rosa2.jpg", "ric": "img/ric.jpg", "blueA": "img/blueA.jpg", "zz": "img/zz.jpg", "bl": "img/bl.jpg", "rm": "img/rm.jpg", "rg": "img/rg.jpg", "hat": "img/hat.jpg", "ring2": "img/ring2.jpg", "ring7": "img/ring7.jpg", "cat10": "img/cat10.jpg", "cat3": "img/cat3.jpg", "cat4": "img/cat4.jpg", "br5": "img/br5.jpg", "br8": "img/br8.jpg", "br9": "img/br9.jpg", "zebra": "img/zebra.jpg", "bic1": "img/bic1.jpg", "bic2": "img/bic2.jpg", "bic3": "img/bic3.jpg", "bic4": "img/bic4.jpg", "pk1": "img/pk1.jpg", "pk2": "img/pk2.jpg", "tan": "img/tan.jpg", "vel1": "img/vel1.jpg", "vel2": "img/vel2.jpg", "cat8": "img/cat8.jpg", "brc1": "img/brc1.jpg", "brc2": "img/brc2.jpg", "fr12": "img/fr12.jpg", "cactus2": "img/cactus2.jpg", "hen2": "img/hen2.jpg", "accP": "img/accP.jpg", "neraP": "img/neraP.jpg", "wm1": "img/wm1.jpg", "irid1": "img/irid1.jpg", "star1": "img/star1.jpg", "wm2": "img/wm2.jpg", "wm3": "img/wm3.jpg", "star2": "img/star2.jpg", "irid2": "img/irid2.jpg", "sew": "img/sew.jpg", "vine": "img/vine.jpg", "plant": "img/plant.jpg", "tbi1": "img/tbi1.jpg", "tbi2": "img/tbi2.jpg", "rg2": "img/rg2.jpg", "rg3": "img/rg3.jpg", "pr1": "img/pr1.jpg", "cc1": "img/cc1.jpg"};
+const IMG = {"mk1": "img/mk1.jpg", "mk2": "img/mk2.jpg", "mk3": "img/mk3.jpg", "mk4": "img/mk4.jpg", "tbl1": "img/tbl1.jpg", "nj1": "img/nj1.jpg", "nj2": "img/nj2.jpg", "nj3": "img/nj3.jpg", "nj4": "img/nj4.jpg", "nj5": "img/nj5.jpg", "nj6": "img/nj6.jpg", "pn1": "img/pn1.jpg", "pn2": "img/pn2.jpg", "pn3": "img/pn3.jpg", "pn4": "img/pn4.jpg", "pn5": "img/pn5.jpg", "dit1": "img/dit1.jpg", "dit2": "img/dit2.jpg", "dit3": "img/dit3.jpg", "edv1": "img/edv1.jpg", "edv2": "img/edv2.jpg", "fairy3": "img/fairy3.jpg", "fairy1": "img/fairy1.jpg", "fairy2": "img/fairy2.jpg", "french": "img/french.jpg", "beer": "img/beer.jpg", "shirt": "img/shirt.jpg", "blue": "img/blue.jpg", "pinkpouch": "img/pinkpouch.jpg", "ring": "img/ring.jpg", "cats": "img/cats.jpg", "cactus": "img/cactus.jpg", "brown": "img/brown.jpg", "purple": "img/purple.jpg", "tools": "img/tools.jpg", "logo": "img/logo.png", "tealflat": "img/tealflat.jpg", "fucsiaflat": "img/fucsiaflat.jpg", "tealpair": "img/tealpair.jpg", "fucsiapair": "img/fucsiapair.jpg", "stripes": "img/stripes.jpg", "lanyard": "img/lanyard.jpg", "bicolore": "img/bicolore.jpg", "malva1": "img/malva1.jpg", "malva2": "img/malva2.jpg", "cl_front": "img/cl_front.jpg", "cl_side": "img/cl_side.jpg", "cl_lining": "img/cl_lining.jpg", "cl_top": "img/cl_top.jpg", "cl_label": "img/cl_label.jpg", "cl_hero": "img/cl_hero.jpg", "nodo1": "img/nodo1.jpg", "nodo2": "img/nodo2.jpg", "gal1": "img/gal1.jpg", "gal2": "img/gal2.jpg", "gal3": "img/gal3.jpg", "gl_all": "img/gl_all.jpg", "gl_teal": "img/gl_teal.jpg", "gl_pair": "img/gl_pair.jpg", "gf1": "img/gf1.jpg", "gf2": "img/gf2.jpg", "rosa1": "img/rosa1.jpg", "rosa2": "img/rosa2.jpg", "ric": "img/ric.jpg", "blueA": "img/blueA.jpg", "zz": "img/zz.jpg", "bl": "img/bl.jpg", "rm": "img/rm.jpg", "rg": "img/rg.jpg", "hat": "img/hat.jpg", "ring2": "img/ring2.jpg", "ring7": "img/ring7.jpg", "cat10": "img/cat10.jpg", "cat3": "img/cat3.jpg", "cat4": "img/cat4.jpg", "br5": "img/br5.jpg", "br8": "img/br8.jpg", "br9": "img/br9.jpg", "zebra": "img/zebra.jpg", "bic1": "img/bic1.jpg", "bic2": "img/bic2.jpg", "bic3": "img/bic3.jpg", "bic4": "img/bic4.jpg", "pk1": "img/pk1.jpg", "pk2": "img/pk2.jpg", "tan": "img/tan.jpg", "vel1": "img/vel1.jpg", "vel2": "img/vel2.jpg", "cat8": "img/cat8.jpg", "brc1": "img/brc1.jpg", "brc2": "img/brc2.jpg", "fr12": "img/fr12.jpg", "cactus2": "img/cactus2.jpg", "hen2": "img/hen2.jpg", "accP": "img/accP.jpg", "neraP": "img/neraP.jpg", "wm1": "img/wm1.jpg", "irid1": "img/irid1.jpg", "star1": "img/star1.jpg", "wm2": "img/wm2.jpg", "wm3": "img/wm3.jpg", "star2": "img/star2.jpg", "irid2": "img/irid2.jpg", "sew": "img/sew.jpg", "vine": "img/vine.jpg", "plant": "img/plant.jpg", "tbi1": "img/tbi1.jpg", "tbi2": "img/tbi2.jpg", "rg2": "img/rg2.jpg", "rg3": "img/rg3.jpg", "pr1": "img/pr1.jpg", "cc1": "img/cc1.jpg"};
 const TH = k => 'img/t/'+k+'.jpg';
 const IG = 'https://www.instagram.com/_sissi_handmade/';
 const IG_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".9" fill="currentColor" stroke="none"/></svg>';
@@ -881,11 +890,30 @@ function Spoiler(){
   </section>`;
 }
 
+function Mercatini(){
+  const ph=[['mk2','Il mio banchetto in piazza, sotto il gazebo bianco','Mercatino di Cilavegna, 17 ottobre 2026'],['mk1','Il tavolo con le creazioni esposte','Mercatino di Cilavegna, 17 ottobre 2026'],['mk3','Il banchetto con le borse appese al gazebo','Festa dell\u2019oca'],['mk4','Una via di mercatino all\u2019ora dorata','Festa dell\u2019oca']];
+  return `
+  <section class="wrap">
+    <div class="page-head">
+      <span class="label">Mercatini</span>
+      <h1>Vieni a trovarmi</h1>
+      <p>Ogni tanto porto le mie creazioni nei mercatini: se passi di l\u00e0 puoi vederle e toccarle di persona.</p>
+    </div>
+    <div class="mk">${ph.map(([k,a,c])=>`<figure><img src="${IMG[k]}" alt="${esc(a)}" loading="lazy"><figcaption>${esc(c)}</figcaption></figure>`).join('')}</div>
+    <div class="mk__cta">
+      <span class="label">Prossime date</span>
+      <p>Quando e dove sar\u00f2 lo scrivo sul mio profilo Instagram: l\u00ec trovi tutti gli aggiornamenti sui prossimi mercatini.</p>
+      ${InstagramButton('Guarda gli aggiornamenti su Instagram')}
+    </div>
+  </section>`;
+}
+
 function route(){
   const h = (location.hash||'#home').slice(1);
   let view='home', scrollTo=null;
   if(h.startsWith('prodotto-')){ app.innerHTML = Product(h.slice(9)) + Footer(); view='prodotto'; bindProduct(); }
   else if(h==='spoiler'){ app.innerHTML = Spoiler()+Footer(); view='spoiler'; }
+  else if(h==='mercatini'){ app.innerHTML = Mercatini()+Footer(); view='mercatini'; }
   else if(h==='catalogo' || h.startsWith('catalogo-')){
     if(h.startsWith('catalogo-')){ const c = CATS.find(c=>slug(c)===h.slice(9)); state.cat = c||'Tutte'; state.st='tutte'; }
     app.innerHTML = Catalog()+Footer(); paintCatalog(); view='catalogo';
